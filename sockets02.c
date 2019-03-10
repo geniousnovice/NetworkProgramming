@@ -10,32 +10,33 @@ int main(int argc, char* argv[])
 	// Start socket programming
 	if (WSAStartup(MAKEWORD(2, 2), &windowsSocketsAPIData) != 0)
 	{
-		printf("STATE = FAILURE from WSAStartup() : %d", WSAGetLastError());
+		printf("STATE = FAILURE from WSAStartup() : %d\n", WSAGetLastError());
 		return 1;
 	}
-	printf("STATE : SUCCESS from WSAStartup()");
+	printf("STATE : SUCCESS from WSAStartup()\n");
 
 	// Create a socket
 	socketA = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (socketA == INVALID_SOCKET)
 	{
-		printf("STATE = FAILURE from socket() : %d", WSAGetLastError());
+		printf("STATE = FAILURE from socket() : %d\n", WSAGetLastError());
 		return 1;
 	}
-	printf("STATE : SUCCESS from socket()");
+	printf("STATE : SUCCESS from socket()\n");
 
 	// Close the server socket
 	if (closesocket(socketA) == SOCKET_ERROR)
 	{
-		printf("STATE = FAILURE from closesocket() : %d", WSAGetLastError());
+		printf("STATE = FAILURE from closesocket() : %d\n", WSAGetLastError());
 		return 1;
 	}
-	printf("STATE : SUCCESS from closesocket()");
+	printf("STATE : SUCCESS from closesocket()\n");
 
 	// Finish socket programming
 	if (WSACleanup() == SOCKET_ERROR)
 	{
-		printf("STATE = FAILURE from WSACleanup() : %d", WSAGetLastError());
+		printf("STATE = FAILURE from WSACleanup() : %d\n", WSAGetLastError());
 		return 1;
 	}
+	printf("STATE : SUCCESS from WSACleanup()\n");
 }
