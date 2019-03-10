@@ -10,6 +10,7 @@ int main(int argc, char* argv[])
 	if (WSAStartup(MAKEWORD(2, 2), &windowsSocketsAPIData) != 0)
 	{
 		printf("STATE = FAILURE from WSAStartup() : %d", WSAGetLastError());
+		return 1;
 	}
 
 	printf("STATE : SUCCESS from WSAStartup()");
@@ -18,5 +19,6 @@ int main(int argc, char* argv[])
 	if (WSACleanup() == SOCKET_ERROR)
 	{
 		printf("STATE = FAILURE from WSACleanup() : %d", WSAGetLastError());
+		return 1;
 	}
 }
