@@ -9,16 +9,16 @@ int main(int argc, char* argv[])
 	// Start socket programming
 	if (WSAStartup(MAKEWORD(2, 2), &windowsSocketsAPIData) != 0)
 	{
-		printf("STATE = FAILURE from WSAStartup() : %d", WSAGetLastError());
+		printf("STATE = FAILURE from WSAStartup() : %d\n", WSAGetLastError());
 		return 1;
 	}
-
-	printf("STATE : SUCCESS from WSAStartup()");
+	printf("STATE : SUCCESS from WSAStartup()\n");
 
 	// Finish socket programming
 	if (WSACleanup() == SOCKET_ERROR)
 	{
-		printf("STATE = FAILURE from WSACleanup() : %d", WSAGetLastError());
+		printf("STATE = FAILURE from WSACleanup() : %d\n", WSAGetLastError());
 		return 1;
 	}
+	printf("STATE : SUCCESS from WSACleanup()\n");
 }
