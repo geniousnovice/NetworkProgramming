@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 	}
 	printf("STATE : SUCCESS from socket()\n");
 
-	// Close the server socket
+	// Close the socket
 	if (closesocket(socketA) == SOCKET_ERROR)
 	{
 		printf("STATE = FAILURE from closesocket() : %d\n", WSAGetLastError());
@@ -39,4 +39,5 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 	printf("STATE : SUCCESS from WSACleanup()\n");
+	return 0;
 }
