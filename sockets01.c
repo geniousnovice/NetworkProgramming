@@ -21,4 +21,5 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 	printf("STATE : SUCCESS from WSACleanup()\n");
+	return 0;
 }
